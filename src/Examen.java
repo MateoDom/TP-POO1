@@ -1,24 +1,22 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Examen {
-    String nombre;
-    String pregunta;
-    String respuesta;
+    private String nombre;
+    private List<Pregunta> preguntas;
 
     public Examen(String nombre) {
         this.nombre = nombre;
     }
 
-    public void agregarPregunta (String pregunta) {
-       this.pregunta = pregunta;
+    public void agregarPregunta (Pregunta pregunta) {
+       preguntas.add(pregunta);
     }
-    public void agregarRespuesta (String respuesta) {
-        this.respuesta = respuesta;
-    }
-    public boolean calificarExamen (String respuesta) {
-        if (respuesta == "Si") {
-            return true;
-        }
-        return false;
+
+    public void calificarExamen (String respuesta) {
+  //        if (respuesta == "Si") {
+  //          return true;
+  //      }
+  //      return false;
     }
 }

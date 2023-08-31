@@ -1,18 +1,18 @@
 public class Nota {
-    int valor;
+    double valor;
     Estudiante estudiante;
     Curso curso;
 
     Examen examen;
 
-    public Nota(int valor, Estudiante estudiante, Curso curso, Examen examen) {
+    public Nota(double valor, Estudiante estudiante, Curso curso, Examen examen) {
         this.valor = valor;
         this.estudiante = estudiante;
         this.curso = curso;
         this.examen = examen;
     }
 
-    public int getValor() {
+    public double getValor() {
         return valor;
     }
 
