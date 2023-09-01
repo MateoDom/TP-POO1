@@ -8,8 +8,8 @@ public class Pregunta {
         this.respuesta = respuesta;
         this.valor = valor;
     }
-    public double corregirPregunta (String respuesta) {
-        if (respuesta == this.respuesta) {
+    public double corregirPregunta(String respuesta) {
+        if (respuesta.equals(this.respuesta)) {
             return this.valor;
         }
         return 0;
