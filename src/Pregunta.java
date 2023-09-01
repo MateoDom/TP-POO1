@@ -14,4 +14,8 @@ public class Pregunta {
         }
         return 0;
     }
+
+    public String getPregunta(){
+        return this.pregunta + " " + this.respuesta + " " + this.valor;
+    }
 }
