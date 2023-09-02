@@ -9,9 +9,13 @@ public class Pregunta {
         this.valor = valor;
     }
     public double corregirPregunta(String respuesta) {
-        if (respuesta.equals(this.respuesta)) {
+        if (respuesta.equalsIgnoreCase(this.respuesta)) {
             return this.valor;
         }
         return 0;
+    }
+
+    public String getPregunta(){
+        return this.pregunta + " " + this.respuesta + " " + this.valor;
     }
 }

@@ -4,7 +4,7 @@ import java.util.List;
 public class Estudiante {
     private String nombre;
     private String apellido;
-    private List<Nota> notas;
+    public List<Nota> notas;
     private String identificacion;
 
     public Estudiante(String nombre, String apellido, String identificacion) {
@@ -14,8 +14,12 @@ public class Estudiante {
         this.notas = new ArrayList<>();
     }
 
-    public String getNombreCompleto(){
-        return this.nombre + " " + this.apellido;
+    public String getDatosAlumnos(){
+        return this.nombre + " " + this.apellido + " " + this.identificacion;
+    }
+
+    public String getNombre(){
+        return nombre;
     }
 
     public void agregarNota(Nota nota) {
@@ -36,7 +40,7 @@ public class Estudiante {
                     .append(", Valor: ").append(nota.getValor())
                     .append("\n");
         }
-
+        System.out.println(notasInfo.toString());
         return notasInfo.toString();
     }
 
@@ -45,6 +49,7 @@ public class Estudiante {
         for (int i = 0; i < notas.size(); i++) {
             total += notas.get(i).getValor();
         }
+        System.out.println("El promedio del alumno" + " " + getNombre() + " " + "es" + " " + total / notas.size());
         return total / notas.size();
     }
 }

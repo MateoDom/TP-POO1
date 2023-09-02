@@ -16,21 +16,33 @@ public class Examen {
        preguntas.add(pregunta);
     }
 
-    public void calificarExamen(Estudiante estudiante, String respuesta1, String respuesta2, String respuesta3, String respuesta4) {
+
+    public double calificarExamen(Estudiante estudiante, String respuesta, int j) {
         double nota = 0.0;
 
-        if (preguntas.size() >= 4) {
-            nota += preguntas.get(0).corregirPregunta(respuesta1);
-            nota += preguntas.get(1).corregirPregunta(respuesta2);
-            nota += preguntas.get(2).corregirPregunta(respuesta3);
-            nota += preguntas.get(3).corregirPregunta(respuesta4);
+        if (preguntas.size() >= j) {
+            nota = nota + preguntas.get(j-1).corregirPregunta(respuesta);
         }
 
         Nota nuevaNota = new Nota(nota, estudiante, this.curso, this);
         estudiante.agregarNota(nuevaNota);
+        return nota;
     }
 
     public String getNombre() {
         return nombre;
+    }
+
+    public String getPreguntas(){
+        StringBuilder preguntasDelExamen = new StringBuilder();
+
+        for (Pregunta pregunta : preguntas) {
+            preguntasDelExamen.append(pregunta.getPregunta()).append("\n");
+        }
+
+        String resultado = preguntasDelExamen.toString();
+        System.out.println("Las preguntas del examen de" + " " + this.nombre + " " + "son:" + " " + "\n" + resultado);
+        return resultado;
+
     }
 }
