@@ -17,16 +17,16 @@ public class Examen {
     }
 
 
-    public void calificarExamen(Estudiante estudiante, String respuesta, int i) {
+    public double calificarExamen(Estudiante estudiante, String respuesta, int j) {
         double nota = 0.0;
 
-        if (preguntas.size() >= i) {
-            nota += preguntas.get(i-1).corregirPregunta(respuesta);
-            System.out.println(nota);
+        if (preguntas.size() >= j) {
+            nota = nota + preguntas.get(j-1).corregirPregunta(respuesta);
         }
 
         Nota nuevaNota = new Nota(nota, estudiante, this.curso, this);
         estudiante.agregarNota(nuevaNota);
+        return nota;
     }
 
     public String getNombre() {
@@ -41,7 +41,7 @@ public class Examen {
         }
 
         String resultado = preguntasDelExamen.toString();
-        System.out.println("Los alumnos del curso de" + " " + this.nombre + " " + "son:" + " " + "\n" + resultado);
+        System.out.println("Las preguntas del examen de" + " " + this.nombre + " " + "son:" + " " + "\n" + resultado);
         return resultado;
 
     }

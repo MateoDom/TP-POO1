@@ -39,7 +39,7 @@ public class Main {
         Examen examen = new Examen("POO 1", curso);
 
         // Cantidad de preguntas a cargar
-        System.out.print("Ingrese la cantidad de preguntas a cargar: ");
+        System.out.print("Ingrese la cantidad de preguntas a cargar en el exámen: ");
         int cantidadPreguntas = scanner.nextInt();
 
         scanner.nextLine();
@@ -53,7 +53,7 @@ public class Main {
             System.out.print("¿Cuál es la respuesta a la pregunta número"  + " " + i + "?");
             String respuesta = scanner.nextLine();
 
-            System.out.print("¿Cuál es la el valor a la pregunta número"  + " " + i + "?");
+            System.out.print("¿Cuál es el valor de la pregunta número"  + " " + i + "?");
             double valor = scanner.nextDouble();
 
             // Crea la nueva pregunta
@@ -66,22 +66,31 @@ public class Main {
         };
         examen.getPreguntas();
 
-        // Alumno Responde Examen y se califica automaticamente.
-        System.out.print("Ingrese el nombre a buscar: ");
+        //Cuantos alumnos hacen el examen?
+        System.out.println("Hay " + cantidadAlumnos + " " + "alumnos en este curso, INDIQUE CUANTOS ALUMNOS VAN A RENDIR:");
+        int alumnosARendir = scanner.nextInt();
+        if(cantidadAlumnos <= alumnosARendir){
+            for (int k = 1; k <= cantidadAlumnos; k++) {
 
-        String nombre = scanner.next();
-        for(Estudiante estudiante : curso.estudiantes){
-            if (estudiante.getNombre().equalsIgnoreCase(nombre)){
-                for (int i = 1; i <= cantidadPreguntas; i++) {
-                    System.out.println("Ingrese la respuesta correcta: ");
-                    String resp = scanner.next();
-                    examen.calificarExamen(estudiante, resp, i);
+                // Alumno Responde Examen y se califica automaticamente.
+                System.out.print("Ingrese el nombre a buscar: ");
+                String nombre = scanner.next();
+
+                for(Estudiante estudiante : curso.estudiantes){
+                    if (estudiante.getNombre().equalsIgnoreCase(nombre)){
+                        for (int j = 1; j <= cantidadPreguntas; j++) {
+                            System.out.println("Ingrese la respuesta correcta a la pregunta numero " + j + ":");
+                            String resp = scanner.next();
+                              examen.calificarExamen(estudiante, resp, j);
+                        }
+                        estudiante.verNotas();
+                        estudiante.calcularPromedio();
+                    }
+
                 }
-
             }
-            estudiante.verNotas();
         }
-
+        curso.calcularPromedio();
 
 
 

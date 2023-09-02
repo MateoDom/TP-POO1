@@ -17,7 +17,7 @@ public class Curso {
         StringBuilder nombresCompletos = new StringBuilder();
 
         for (Estudiante estudiante : estudiantes) {
-            nombresCompletos.append(estudiante.getDatosAlumnos()).append("\n");
+            nombresCompletos.append(estudiante.getDatosAlumnos());
         }
 
         String resultado = nombresCompletos.toString();
@@ -40,7 +40,7 @@ public class Curso {
             if (cantidadNotas == 0) {
                 return 0.0;
             }
-
+            System.out.println("El promedio general del curso es: " + total / cantidadNotas);
             return total / cantidadNotas;
         }
 

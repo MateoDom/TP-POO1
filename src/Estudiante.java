@@ -49,6 +49,7 @@ public class Estudiante {
         for (int i = 0; i < notas.size(); i++) {
             total += notas.get(i).getValor();
         }
+        System.out.println("El promedio del alumno" + " " + getNombre() + " " + "es" + " " + total / notas.size());
         return total / notas.size();
     }
 }
